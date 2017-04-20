@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<modification>
+	<id>Product Option Image - Show Option Image in Cart</id>
+	<version>2.0.0</version>
+	<vqmver>2.5.x</vqmver>
+	<author>WeDoWeb.com.au - contact@wedoweb.com.au</author>
+	<!-- Show selected image in cart -->
+	<file name="catalog/controller/checkout/cart.php">
+		<operation>
+			<search position="before"><![CDATA[$product_options = $this->model_catalog_product->getProductOptions]]></search>
+			<add><![CDATA[
+				$srcimage ="";   
+				global $log;
+				if (isset($this->request->post['image'])) {   		
+					$srcimg = $this->request->post['image'];
+					
+					//substring from 'image'
+					$poiIndex = (int)strpos($srcimg, 'image');                
+					$srcimage = substr($srcimg, $poiIndex + 6 , strlen($srcimg) - ($poiIndex + 6));
+				} else {
+					$srcimage = "";
+				}
+				]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[($this->request->post['product_id'], $this->request->post['quantity'], $option, $recurring_id);]]></search>
+			<add><![CDATA[($this->request->post['product_id'], $this->request->post['quantity'], $option, $recurring_id, $srcimage);]]></add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/*/template/product/product.tpl">
+		<operation>
+			<search position="after"><![CDATA[$('#button-cart').on('click', function()]]></search>
+			<add><![CDATA[
+				var mainImg = $poiImageToChange.attr('src');
+				var data =$('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea');
+				data = data.serialize() + '&image=' + mainImg;
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[data: $('#product input]]></search>
+			<add><![CDATA[data: data, //$('#product input]]></add>
+		</operation>
+	</file>
+	<file name="system/library/cart.php">
+		<operation>
+			<search position="replace"><![CDATA[=> $product_query->row['image'],]]></search>
+			<add><![CDATA[=> $product['srcimg'] != '' ? $product['srcimg'] : $product_query->row['image'],]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[($product_id, $qty = 1, $option = array(), $recurring_id = 0)]]></search>
+			<add><![CDATA[($product_id, $qty = 1, $option = array(), $recurring_id = 0, $srcimg = '')]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[$key = base64_encode(serialize($product));]]></search>
+			<add><![CDATA[
+				if ($srcimg) {
+					$product['srcimg'] = $srcimg;
+				}
+				else
+				{
+					$product['srcimg'] = '';
+				}
+			]]></add>
+		</operation>
+	</file>
+	<!-- End show selected image in cart -->
+</modification>

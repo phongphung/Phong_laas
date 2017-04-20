@@ -1,0 +1,3466 @@
+2015-12-08 17:03:46 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Journal2
+CODE: public function __construct($registry) {
+LINE: 15
+FILE: admin/controller/common/menu.php
+CODE: $this->load->language('common/menu');
+LINE: 3
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a class="parent"><?php echo $text_marketing; ?></a>
+LINE: 190
+FILE: admin/controller/marketing/contact.php
+CODE: $this->load->model('sale/customer');
+LINE: 97
+CODE: $email_total = $this->model_sale_customer->getTotalCustomers($customer_data);
+LINE: 124
+CODE: $results = $this->model_sale_customer->getCustomers($customer_data);
+LINE: 126
+FILE: admin/controller/tool/backup.php
+CODE: $this->error['warning'] = $this->language->get('error_empty');
+LINE: 25
+CODE: public function index() {
+LINE: 4
+FILE: admin/view/template/tool/backup.tpl
+CODE: <input type="file" name="import" id="input-import" />
+LINE: 36
+FILE: admin/model/tool/backup.php
+CODE: $values .= '\'' . $value . '\', ';
+LINE: 82
+CODE: $output .= 'TRUNCATE TABLE `' . $table . '`;' . "\n\n";
+LINE: 47
+CODE: $sql = trim($sql);
+LINE: 4
+FILE: catalog/controller/common/header.php
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 88
+FILE: catalog/controller/common/footer.php
+CODE: foreach ($this->model_catalog_information->getInformations() as $result) {
+LINE: 24
+FILE: system/library/response.php
+CODE: if ($this->output) {
+LINE: 58
+FILE: catalog/model/tool/image.php
+CODE: return $this->config->get('config_ssl') . 'image/' . $new_image;
+LINE: 37
+CODE: return $this->config->get('config_url') . 'image/' . $new_image;
+LINE: 39
+CODE: public function resize($filename, $width, $height) {
+LINE: 2
+CODE: $image->resize($width, $height);
+LINE: 29
+FILE: admin/model/extension/module.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "layout_module` WHERE `code` LIKE '%." . (int)$module_id . "'");
+LINE: 12
+CODE: public function deleteModulesByCode($code) {
+LINE: 37
+FILE: admin/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 110
+CODE: $this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 39
+FILE: catalog/controller/common/content_top.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/content_bottom.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/column_left.php
+CODE: $part = explode('.', $module['code']);
+LINE: 48
+FILE: catalog/controller/common/column_right.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "' AND position = '" . $this->db->escape($position) . "' ORDER BY sort_order");
+LINE: 13
+FILE: catalog/controller/product/product.php
+CODE: if ((float)$product_info['special']) {
+LINE: 311
+CODE: $data['products'][] = array(
+LINE: 449
+CODE: 'special'     => $special,
+LINE: 455
+FILE: catalog/controller/product/category.php
+CODE: $data['products'][] = array(
+LINE: 223
+CODE: 'special'     => $special,
+LINE: 229
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 256
+CODE: 'special'     => $special,
+LINE: 262
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 224
+CODE: 'special'     => $special,
+LINE: 230
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 141
+CODE: 'special'     => $special,
+LINE: 147
+FILE: catalog/controller/checkout/cart.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+LINE: 341
+FILE: catalog/controller/account/wishlist.php
+CODE: $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+LINE: 173
+FILE: catalog/controller/product/compare.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+LINE: 193
+FILE: catalog/controller/common/cart.php
+CODE: $image = '';
+LINE: 59
+CODE: $image = '';
+LINE: 93
+CODE: $data['popup'] = '';
+LINE: 285
+CODE: $data['thumb'] = '';
+LINE: 291
+CODE: $data['manufacturer'] = $product_info['manufacturer'];
+LINE: 266
+CODE: $data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+LINE: 304
+CODE: $data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+LINE: 311
+CODE: $this->model_tool_image->resize($option_value['image'], 50, 50),
+LINE: 383
+CODE: $this->load->model('catalog/product');
+LINE: 156
+CODE: if ($product_info['quantity'] <= 0) {
+LINE: 304
+CODE: 'thumb'       => $image,
+LINE: 485
+CODE: $this->load->model('catalog/product');
+LINE: 5
+LINE: 179
+CODE: 'thumb'        => $image,
+LINE: 118
+FILE: catalog/controller/module/category.php
+CODE: $this->load->model('catalog/product');
+LINE: 27
+CODE: 'thumb'       => $image,
+NOT FOUND!
+FILE: catalog/controller/module/special.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+FILE: catalog/controller/module/bestseller.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 58
+FILE: catalog/controller/module/latest.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 68
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 228
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 261
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 146
+CODE: $this->load->model('catalog/product');
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 229
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 149
+FILE: catalog/controller/module/featured.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 64
+CODE: $data['products'][] = array(
+LINE: 492
+CODE: 'thumb'       => $image,
+LINE: 494
+CODE: $data['products'][] = array(
+NOT FOUND!
+CODE: 'thumb'       => $image,
+NOT FOUND!
+CODE: $data['products'][] = array(
+LINE: 75
+CODE: 'thumb'       => $image,
+LINE: 77
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: 'thumb'       => $image,
+LINE: 67
+CODE: $data['products'][] = array(
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 74
+CODE: $data['products'][] = array(
+LINE: 84
+CODE: 'thumb'       => $image,
+LINE: 86
+CODE: $data['products'][] = array(
+LINE: 235
+CODE: 'thumb'       => $image,
+LINE: 237
+CODE: $data['products'][] = array(
+LINE: 268
+CODE: 'thumb'       => $image,
+LINE: 270
+CODE: $data['products'][] = array(
+LINE: 156
+CODE: 'thumb'       => $image,
+LINE: 158
+CODE: $data['products'][] = array(
+LINE: 236
+CODE: 'thumb'       => $image,
+LINE: 238
+CODE: $data['products'][] = array(
+LINE: 165
+CODE: 'thumb'       => $image,
+LINE: 167
+CODE: $data['products'][] = array(
+LINE: 71
+CODE: 'thumb'       => $image,
+LINE: 73
+FILE: catalog/controller/feed/google_sitemap.php
+CODE: $output .= '</urlset>';
+LINE: 85
+FILE: catalog/controller/common/seo_url.php
+CODE: if ($query->num_rows) {
+LINE: 42
+CODE: if ($url[0] == 'product_id') {
+LINE: 54
+CODE: if (!isset($this->request->get['route'])) {
+LINE: 91
+CODE: public function rewrite($link) {
+LINE: 109
+CODE: $key == 'path'
+LINE: 153
+CODE: if ($url) {
+LINE: 177
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+FILE: admin/controller/common/filemanager.php
+CODE: . 'catalog
+LINE: 13
+LINE: 15
+LINE: 70
+LINE: 212
+LINE: 214
+LINE: 295
+LINE: 297
+LINE: 351
+CODE: $name = str_split(basename($image), 14);
+LINE: 58
+FILE: admin/view/template/common/filemanager.tpl
+CODE: <div class="modal-dialog modal-lg">
+LINE: 39
+CODE: $('a.directory').on('click', function(e) {
+LINE: 122
+CODE: //--></script>
+LINE: 289
+----------------------------------------------------------------
+2015-12-08 17:03:50 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Journal2
+CODE: public function __construct($registry) {
+LINE: 15
+FILE: admin/controller/common/menu.php
+CODE: $this->load->language('common/menu');
+LINE: 3
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a class="parent"><?php echo $text_marketing; ?></a>
+LINE: 190
+FILE: admin/controller/marketing/contact.php
+CODE: $this->load->model('sale/customer');
+LINE: 97
+CODE: $email_total = $this->model_sale_customer->getTotalCustomers($customer_data);
+LINE: 124
+CODE: $results = $this->model_sale_customer->getCustomers($customer_data);
+LINE: 126
+FILE: admin/controller/tool/backup.php
+CODE: $this->error['warning'] = $this->language->get('error_empty');
+LINE: 25
+CODE: public function index() {
+LINE: 4
+FILE: admin/view/template/tool/backup.tpl
+CODE: <input type="file" name="import" id="input-import" />
+LINE: 36
+FILE: admin/model/tool/backup.php
+CODE: $values .= '\'' . $value . '\', ';
+LINE: 82
+CODE: $output .= 'TRUNCATE TABLE `' . $table . '`;' . "\n\n";
+LINE: 47
+CODE: $sql = trim($sql);
+LINE: 4
+FILE: catalog/controller/common/header.php
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 88
+FILE: catalog/controller/common/footer.php
+CODE: foreach ($this->model_catalog_information->getInformations() as $result) {
+LINE: 24
+FILE: system/library/response.php
+CODE: if ($this->output) {
+LINE: 58
+FILE: catalog/model/tool/image.php
+CODE: return $this->config->get('config_ssl') . 'image/' . $new_image;
+LINE: 37
+CODE: return $this->config->get('config_url') . 'image/' . $new_image;
+LINE: 39
+CODE: public function resize($filename, $width, $height) {
+LINE: 2
+CODE: $image->resize($width, $height);
+LINE: 29
+FILE: admin/model/extension/module.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "layout_module` WHERE `code` LIKE '%." . (int)$module_id . "'");
+LINE: 12
+CODE: public function deleteModulesByCode($code) {
+LINE: 37
+FILE: admin/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 110
+CODE: $this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 39
+FILE: catalog/controller/common/content_top.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/content_bottom.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/column_left.php
+CODE: $part = explode('.', $module['code']);
+LINE: 48
+FILE: catalog/controller/common/column_right.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "' AND position = '" . $this->db->escape($position) . "' ORDER BY sort_order");
+LINE: 13
+FILE: catalog/controller/product/product.php
+CODE: if ((float)$product_info['special']) {
+LINE: 311
+CODE: $data['products'][] = array(
+LINE: 449
+CODE: 'special'     => $special,
+LINE: 455
+FILE: catalog/controller/product/category.php
+CODE: $data['products'][] = array(
+LINE: 223
+CODE: 'special'     => $special,
+LINE: 229
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 256
+CODE: 'special'     => $special,
+LINE: 262
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 224
+CODE: 'special'     => $special,
+LINE: 230
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 141
+CODE: 'special'     => $special,
+LINE: 147
+FILE: catalog/controller/checkout/cart.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+LINE: 341
+FILE: catalog/controller/account/wishlist.php
+CODE: $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+LINE: 173
+FILE: catalog/controller/product/compare.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+LINE: 193
+FILE: catalog/controller/common/cart.php
+CODE: $image = '';
+LINE: 59
+CODE: $image = '';
+LINE: 93
+CODE: $data['popup'] = '';
+LINE: 285
+CODE: $data['thumb'] = '';
+LINE: 291
+CODE: $data['manufacturer'] = $product_info['manufacturer'];
+LINE: 266
+CODE: $data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+LINE: 304
+CODE: $data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+LINE: 311
+CODE: $this->model_tool_image->resize($option_value['image'], 50, 50),
+LINE: 383
+CODE: $this->load->model('catalog/product');
+LINE: 156
+CODE: if ($product_info['quantity'] <= 0) {
+LINE: 304
+CODE: 'thumb'       => $image,
+LINE: 485
+CODE: $this->load->model('catalog/product');
+LINE: 5
+LINE: 179
+CODE: 'thumb'        => $image,
+LINE: 118
+FILE: catalog/controller/module/category.php
+CODE: $this->load->model('catalog/product');
+LINE: 27
+CODE: 'thumb'       => $image,
+NOT FOUND!
+FILE: catalog/controller/module/special.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+FILE: catalog/controller/module/bestseller.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 58
+FILE: catalog/controller/module/latest.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 68
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 228
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 261
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 146
+CODE: $this->load->model('catalog/product');
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 229
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 149
+FILE: catalog/controller/module/featured.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 64
+CODE: $data['products'][] = array(
+LINE: 492
+CODE: 'thumb'       => $image,
+LINE: 494
+CODE: $data['products'][] = array(
+NOT FOUND!
+CODE: 'thumb'       => $image,
+NOT FOUND!
+CODE: $data['products'][] = array(
+LINE: 75
+CODE: 'thumb'       => $image,
+LINE: 77
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: 'thumb'       => $image,
+LINE: 67
+CODE: $data['products'][] = array(
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 74
+CODE: $data['products'][] = array(
+LINE: 84
+CODE: 'thumb'       => $image,
+LINE: 86
+CODE: $data['products'][] = array(
+LINE: 235
+CODE: 'thumb'       => $image,
+LINE: 237
+CODE: $data['products'][] = array(
+LINE: 268
+CODE: 'thumb'       => $image,
+LINE: 270
+CODE: $data['products'][] = array(
+LINE: 156
+CODE: 'thumb'       => $image,
+LINE: 158
+CODE: $data['products'][] = array(
+LINE: 236
+CODE: 'thumb'       => $image,
+LINE: 238
+CODE: $data['products'][] = array(
+LINE: 165
+CODE: 'thumb'       => $image,
+LINE: 167
+CODE: $data['products'][] = array(
+LINE: 71
+CODE: 'thumb'       => $image,
+LINE: 73
+FILE: catalog/controller/feed/google_sitemap.php
+CODE: $output .= '</urlset>';
+LINE: 85
+FILE: catalog/controller/common/seo_url.php
+CODE: if ($query->num_rows) {
+LINE: 42
+CODE: if ($url[0] == 'product_id') {
+LINE: 54
+CODE: if (!isset($this->request->get['route'])) {
+LINE: 91
+CODE: public function rewrite($link) {
+LINE: 109
+CODE: $key == 'path'
+LINE: 153
+CODE: if ($url) {
+LINE: 177
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+FILE: admin/controller/common/filemanager.php
+CODE: . 'catalog
+LINE: 13
+LINE: 15
+LINE: 70
+LINE: 212
+LINE: 214
+LINE: 295
+LINE: 297
+LINE: 351
+CODE: $name = str_split(basename($image), 14);
+LINE: 58
+FILE: admin/view/template/common/filemanager.tpl
+CODE: <div class="modal-dialog modal-lg">
+LINE: 39
+CODE: $('a.directory').on('click', function(e) {
+LINE: 122
+CODE: //--></script>
+LINE: 289
+----------------------------------------------------------------
+2015-12-11 11:21:30 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Journal2
+CODE: public function __construct($registry) {
+LINE: 15
+FILE: admin/controller/common/menu.php
+CODE: $this->load->language('common/menu');
+LINE: 3
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a class="parent"><?php echo $text_marketing; ?></a>
+LINE: 190
+FILE: admin/controller/marketing/contact.php
+CODE: $this->load->model('sale/customer');
+LINE: 97
+CODE: $email_total = $this->model_sale_customer->getTotalCustomers($customer_data);
+LINE: 124
+CODE: $results = $this->model_sale_customer->getCustomers($customer_data);
+LINE: 126
+FILE: admin/controller/tool/backup.php
+CODE: $this->error['warning'] = $this->language->get('error_empty');
+LINE: 25
+CODE: public function index() {
+LINE: 4
+FILE: admin/view/template/tool/backup.tpl
+CODE: <input type="file" name="import" id="input-import" />
+LINE: 36
+FILE: admin/model/tool/backup.php
+CODE: $values .= '\'' . $value . '\', ';
+LINE: 82
+CODE: $output .= 'TRUNCATE TABLE `' . $table . '`;' . "\n\n";
+LINE: 47
+CODE: $sql = trim($sql);
+LINE: 4
+FILE: catalog/controller/common/header.php
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 88
+FILE: catalog/controller/common/footer.php
+CODE: foreach ($this->model_catalog_information->getInformations() as $result) {
+LINE: 24
+FILE: system/library/response.php
+CODE: if ($this->output) {
+LINE: 58
+FILE: catalog/model/tool/image.php
+CODE: return $this->config->get('config_ssl') . 'image/' . $new_image;
+LINE: 37
+CODE: return $this->config->get('config_url') . 'image/' . $new_image;
+LINE: 39
+CODE: public function resize($filename, $width, $height) {
+LINE: 2
+CODE: $image->resize($width, $height);
+LINE: 29
+FILE: admin/model/extension/module.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "layout_module` WHERE `code` LIKE '%." . (int)$module_id . "'");
+LINE: 12
+CODE: public function deleteModulesByCode($code) {
+LINE: 37
+FILE: admin/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 110
+CODE: $this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 39
+FILE: catalog/controller/common/content_top.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/content_bottom.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/column_left.php
+CODE: $part = explode('.', $module['code']);
+LINE: 48
+FILE: catalog/controller/common/column_right.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "' AND position = '" . $this->db->escape($position) . "' ORDER BY sort_order");
+LINE: 13
+FILE: catalog/controller/product/product.php
+CODE: if ((float)$product_info['special']) {
+LINE: 311
+CODE: $data['products'][] = array(
+LINE: 449
+CODE: 'special'     => $special,
+LINE: 455
+FILE: catalog/controller/product/category.php
+CODE: $data['products'][] = array(
+LINE: 223
+CODE: 'special'     => $special,
+LINE: 229
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 256
+CODE: 'special'     => $special,
+LINE: 262
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 224
+CODE: 'special'     => $special,
+LINE: 230
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 141
+CODE: 'special'     => $special,
+LINE: 147
+FILE: catalog/controller/checkout/cart.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+LINE: 341
+FILE: catalog/controller/account/wishlist.php
+CODE: $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+LINE: 173
+FILE: catalog/controller/product/compare.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+LINE: 193
+FILE: catalog/controller/common/cart.php
+CODE: $image = '';
+LINE: 59
+CODE: $image = '';
+LINE: 93
+CODE: $data['popup'] = '';
+LINE: 285
+CODE: $data['thumb'] = '';
+LINE: 291
+CODE: $data['manufacturer'] = $product_info['manufacturer'];
+LINE: 266
+CODE: $data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+LINE: 304
+CODE: $data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+LINE: 311
+CODE: $this->model_tool_image->resize($option_value['image'], 50, 50),
+LINE: 383
+CODE: $this->load->model('catalog/product');
+LINE: 156
+CODE: if ($product_info['quantity'] <= 0) {
+LINE: 304
+CODE: 'thumb'       => $image,
+LINE: 485
+CODE: $this->load->model('catalog/product');
+LINE: 5
+LINE: 179
+CODE: 'thumb'        => $image,
+LINE: 118
+FILE: catalog/controller/module/category.php
+CODE: $this->load->model('catalog/product');
+LINE: 27
+CODE: 'thumb'       => $image,
+NOT FOUND!
+FILE: catalog/controller/module/special.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+FILE: catalog/controller/module/bestseller.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 58
+FILE: catalog/controller/module/latest.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 68
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 228
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 261
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 146
+CODE: $this->load->model('catalog/product');
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 229
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 149
+FILE: catalog/controller/module/featured.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 64
+CODE: $data['products'][] = array(
+LINE: 492
+CODE: 'thumb'       => $image,
+LINE: 494
+CODE: $data['products'][] = array(
+NOT FOUND!
+CODE: 'thumb'       => $image,
+NOT FOUND!
+CODE: $data['products'][] = array(
+LINE: 75
+CODE: 'thumb'       => $image,
+LINE: 77
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: 'thumb'       => $image,
+LINE: 67
+CODE: $data['products'][] = array(
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 74
+CODE: $data['products'][] = array(
+LINE: 84
+CODE: 'thumb'       => $image,
+LINE: 86
+CODE: $data['products'][] = array(
+LINE: 235
+CODE: 'thumb'       => $image,
+LINE: 237
+CODE: $data['products'][] = array(
+LINE: 268
+CODE: 'thumb'       => $image,
+LINE: 270
+CODE: $data['products'][] = array(
+LINE: 156
+CODE: 'thumb'       => $image,
+LINE: 158
+CODE: $data['products'][] = array(
+LINE: 236
+CODE: 'thumb'       => $image,
+LINE: 238
+CODE: $data['products'][] = array(
+LINE: 165
+CODE: 'thumb'       => $image,
+LINE: 167
+CODE: $data['products'][] = array(
+LINE: 71
+CODE: 'thumb'       => $image,
+LINE: 73
+FILE: catalog/controller/feed/google_sitemap.php
+CODE: $output .= '</urlset>';
+LINE: 85
+FILE: catalog/controller/common/seo_url.php
+CODE: if ($query->num_rows) {
+LINE: 42
+CODE: if ($url[0] == 'product_id') {
+LINE: 54
+CODE: if (!isset($this->request->get['route'])) {
+LINE: 91
+CODE: public function rewrite($link) {
+LINE: 109
+CODE: $key == 'path'
+LINE: 153
+CODE: if ($url) {
+LINE: 177
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+FILE: admin/controller/common/filemanager.php
+CODE: . 'catalog
+LINE: 13
+LINE: 15
+LINE: 70
+LINE: 212
+LINE: 214
+LINE: 295
+LINE: 297
+LINE: 351
+CODE: $name = str_split(basename($image), 14);
+LINE: 58
+FILE: admin/view/template/common/filemanager.tpl
+CODE: <div class="modal-dialog modal-lg">
+LINE: 39
+CODE: $('a.directory').on('click', function(e) {
+LINE: 122
+CODE: //--></script>
+LINE: 289
+----------------------------------------------------------------
+2015-12-14 16:43:43 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Journal2
+CODE: public function __construct($registry) {
+LINE: 15
+FILE: admin/controller/common/menu.php
+CODE: $this->load->language('common/menu');
+LINE: 3
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a class="parent"><?php echo $text_marketing; ?></a>
+LINE: 190
+FILE: admin/controller/marketing/contact.php
+CODE: $this->load->model('sale/customer');
+LINE: 97
+CODE: $email_total = $this->model_sale_customer->getTotalCustomers($customer_data);
+LINE: 124
+CODE: $results = $this->model_sale_customer->getCustomers($customer_data);
+LINE: 126
+FILE: admin/controller/tool/backup.php
+CODE: $this->error['warning'] = $this->language->get('error_empty');
+LINE: 25
+CODE: public function index() {
+LINE: 4
+FILE: admin/view/template/tool/backup.tpl
+CODE: <input type="file" name="import" id="input-import" />
+LINE: 36
+FILE: admin/model/tool/backup.php
+CODE: $values .= '\'' . $value . '\', ';
+LINE: 82
+CODE: $output .= 'TRUNCATE TABLE `' . $table . '`;' . "\n\n";
+LINE: 47
+CODE: $sql = trim($sql);
+LINE: 4
+FILE: catalog/controller/common/header.php
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 88
+FILE: catalog/controller/common/footer.php
+CODE: foreach ($this->model_catalog_information->getInformations() as $result) {
+LINE: 24
+FILE: system/library/response.php
+CODE: if ($this->output) {
+LINE: 58
+FILE: catalog/model/tool/image.php
+CODE: return $this->config->get('config_ssl') . 'image/' . $new_image;
+LINE: 37
+CODE: return $this->config->get('config_url') . 'image/' . $new_image;
+LINE: 39
+CODE: public function resize($filename, $width, $height) {
+LINE: 2
+CODE: $image->resize($width, $height);
+LINE: 29
+FILE: admin/model/extension/module.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "layout_module` WHERE `code` LIKE '%." . (int)$module_id . "'");
+LINE: 12
+CODE: public function deleteModulesByCode($code) {
+LINE: 37
+FILE: admin/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 110
+CODE: $this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 39
+FILE: catalog/controller/common/content_top.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/content_bottom.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/column_left.php
+CODE: $part = explode('.', $module['code']);
+LINE: 48
+FILE: catalog/controller/common/column_right.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "' AND position = '" . $this->db->escape($position) . "' ORDER BY sort_order");
+LINE: 13
+FILE: catalog/controller/product/product.php
+CODE: if ((float)$product_info['special']) {
+LINE: 311
+CODE: $data['products'][] = array(
+LINE: 449
+CODE: 'special'     => $special,
+LINE: 455
+FILE: catalog/controller/product/category.php
+CODE: $data['products'][] = array(
+LINE: 223
+CODE: 'special'     => $special,
+LINE: 229
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 256
+CODE: 'special'     => $special,
+LINE: 262
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 224
+CODE: 'special'     => $special,
+LINE: 230
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 141
+CODE: 'special'     => $special,
+LINE: 147
+FILE: catalog/controller/checkout/cart.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+LINE: 341
+FILE: catalog/controller/account/wishlist.php
+CODE: $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+LINE: 173
+FILE: catalog/controller/product/compare.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+LINE: 193
+FILE: catalog/controller/common/cart.php
+CODE: $image = '';
+LINE: 59
+CODE: $image = '';
+LINE: 93
+CODE: $data['popup'] = '';
+LINE: 285
+CODE: $data['thumb'] = '';
+LINE: 291
+CODE: $data['manufacturer'] = $product_info['manufacturer'];
+LINE: 266
+CODE: $data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+LINE: 304
+CODE: $data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+LINE: 311
+CODE: $this->model_tool_image->resize($option_value['image'], 50, 50),
+LINE: 383
+CODE: $this->load->model('catalog/product');
+LINE: 156
+CODE: if ($product_info['quantity'] <= 0) {
+LINE: 304
+CODE: 'thumb'       => $image,
+LINE: 485
+CODE: $this->load->model('catalog/product');
+LINE: 5
+LINE: 179
+CODE: 'thumb'        => $image,
+LINE: 118
+FILE: catalog/controller/module/category.php
+CODE: $this->load->model('catalog/product');
+LINE: 27
+CODE: 'thumb'       => $image,
+NOT FOUND!
+FILE: catalog/controller/module/special.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+FILE: catalog/controller/module/bestseller.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 58
+FILE: catalog/controller/module/latest.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 68
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 228
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 261
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 146
+CODE: $this->load->model('catalog/product');
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 229
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 149
+FILE: catalog/controller/module/featured.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 64
+CODE: $data['products'][] = array(
+LINE: 492
+CODE: 'thumb'       => $image,
+LINE: 494
+CODE: $data['products'][] = array(
+NOT FOUND!
+CODE: 'thumb'       => $image,
+NOT FOUND!
+CODE: $data['products'][] = array(
+LINE: 75
+CODE: 'thumb'       => $image,
+LINE: 77
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: 'thumb'       => $image,
+LINE: 67
+CODE: $data['products'][] = array(
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 74
+CODE: $data['products'][] = array(
+LINE: 84
+CODE: 'thumb'       => $image,
+LINE: 86
+CODE: $data['products'][] = array(
+LINE: 235
+CODE: 'thumb'       => $image,
+LINE: 237
+CODE: $data['products'][] = array(
+LINE: 268
+CODE: 'thumb'       => $image,
+LINE: 270
+CODE: $data['products'][] = array(
+LINE: 156
+CODE: 'thumb'       => $image,
+LINE: 158
+CODE: $data['products'][] = array(
+LINE: 236
+CODE: 'thumb'       => $image,
+LINE: 238
+CODE: $data['products'][] = array(
+LINE: 165
+CODE: 'thumb'       => $image,
+LINE: 167
+CODE: $data['products'][] = array(
+LINE: 71
+CODE: 'thumb'       => $image,
+LINE: 73
+FILE: catalog/controller/feed/google_sitemap.php
+CODE: $output .= '</urlset>';
+LINE: 85
+FILE: catalog/controller/common/seo_url.php
+CODE: if ($query->num_rows) {
+LINE: 42
+CODE: if ($url[0] == 'product_id') {
+LINE: 54
+CODE: if (!isset($this->request->get['route'])) {
+LINE: 91
+CODE: public function rewrite($link) {
+LINE: 109
+CODE: $key == 'path'
+LINE: 153
+CODE: if ($url) {
+LINE: 177
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+FILE: admin/controller/common/filemanager.php
+CODE: . 'catalog
+LINE: 13
+LINE: 15
+LINE: 70
+LINE: 212
+LINE: 214
+LINE: 295
+LINE: 297
+LINE: 351
+CODE: $name = str_split(basename($image), 14);
+LINE: 58
+FILE: admin/view/template/common/filemanager.tpl
+CODE: <div class="modal-dialog modal-lg">
+LINE: 39
+CODE: $('a.directory').on('click', function(e) {
+LINE: 122
+CODE: //--></script>
+LINE: 289
+----------------------------------------------------------------
+Modification::refresh - Processing 'Quick Checkout'
+Modification::refresh - Done 'Quick Checkout'
+----------------------------------------------------------------
+Modification::refresh - Processing 'Super Checkout V1.6'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/catalog/model/setting/setting.php'
+  search = '$data[$result['key']] = unserialize($setting['value']);'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/model/setting/setting.php'
+  search = '$data[$result['key']] = unserialize($setting['value']);'
+Modification::refresh - Done 'Super Checkout V1.6'
+----------------------------------------------------------------
+Modification::refresh - Processing 'VQMOD CORE FOR OPENCART - DO NOT REMOVE'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/action.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/controller.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/controller.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/event.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/event.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/front.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/loader.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/model.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/model.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/registry.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/engine/registry.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/affiliate.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/affiliate.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/amazon.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/amazon.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/amazonus.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/amazonus.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/cache.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/cache.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/cart.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/cart.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/cba.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/cba.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/config.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/currency.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/currency.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/customer.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/customer.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/db.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/db.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/document.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/document.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/ebay.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/ebay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/encryption.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/encryption.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/etsy.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/etsy.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/googleSetup.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/googleSetup.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/image.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/image.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/language.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/length.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/length.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/log.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/log.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/mail.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/mail.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/openbay.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/openbay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/pagination.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/pagination.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/request.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/request.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/response.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/response.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/session.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/session.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/tax.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/tax.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/url.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/url.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/user.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/user.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/weight.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/system/library/weight.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/feed.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/feed.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/installer.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/modification.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/modification.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/module.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/module.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/openbay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/payment.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/payment.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/shipping.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/shipping.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/total.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = 'C:\xampp\htdocs\fashion/admin/controller/extension/total.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - Done 'VQMOD CORE FOR OPENCART - DO NOT REMOVE'
+----------------------------------------------------------------
+2016-04-01 0:48:38 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Journal2
+CODE: public function __construct($registry) {
+LINE: 15
+FILE: admin/controller/common/menu.php
+CODE: $this->load->language('common/menu');
+LINE: 3
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a class="parent"><?php echo $text_marketing; ?></a>
+LINE: 190
+FILE: admin/controller/marketing/contact.php
+CODE: $this->load->model('sale/customer');
+LINE: 97
+CODE: $email_total = $this->model_sale_customer->getTotalCustomers($customer_data);
+LINE: 124
+CODE: $results = $this->model_sale_customer->getCustomers($customer_data);
+LINE: 126
+FILE: admin/controller/tool/backup.php
+CODE: $this->error['warning'] = $this->language->get('error_empty');
+LINE: 25
+CODE: public function index() {
+LINE: 4
+FILE: admin/view/template/tool/backup.tpl
+CODE: <input type="file" name="import" id="input-import" />
+LINE: 36
+FILE: admin/model/tool/backup.php
+CODE: $values .= '\'' . $value . '\', ';
+LINE: 82
+CODE: $output .= 'TRUNCATE TABLE `' . $table . '`;' . "\n\n";
+LINE: 47
+CODE: $sql = trim($sql);
+LINE: 4
+FILE: catalog/controller/common/header.php
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 88
+FILE: catalog/controller/common/footer.php
+CODE: foreach ($this->model_catalog_information->getInformations() as $result) {
+LINE: 24
+FILE: system/library/response.php
+CODE: if ($this->output) {
+LINE: 58
+FILE: catalog/model/tool/image.php
+CODE: return $this->config->get('config_ssl') . 'image/' . $new_image;
+LINE: 37
+CODE: return $this->config->get('config_url') . 'image/' . $new_image;
+LINE: 39
+CODE: public function resize($filename, $width, $height) {
+LINE: 2
+CODE: $image->resize($width, $height);
+LINE: 29
+FILE: admin/model/extension/module.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "layout_module` WHERE `code` LIKE '%." . (int)$module_id . "'");
+LINE: 12
+CODE: public function deleteModulesByCode($code) {
+LINE: 37
+FILE: admin/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 110
+CODE: $this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 39
+FILE: catalog/controller/common/content_top.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/content_bottom.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/column_left.php
+CODE: $part = explode('.', $module['code']);
+LINE: 48
+FILE: catalog/controller/common/column_right.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "' AND position = '" . $this->db->escape($position) . "' ORDER BY sort_order");
+LINE: 13
+FILE: catalog/controller/product/product.php
+CODE: if ((float)$product_info['special']) {
+LINE: 311
+CODE: $data['products'][] = array(
+LINE: 449
+CODE: 'special'     => $special,
+LINE: 455
+FILE: catalog/controller/product/category.php
+CODE: $data['products'][] = array(
+LINE: 223
+CODE: 'special'     => $special,
+LINE: 229
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 256
+CODE: 'special'     => $special,
+LINE: 262
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 224
+CODE: 'special'     => $special,
+LINE: 230
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 141
+CODE: 'special'     => $special,
+LINE: 147
+FILE: catalog/controller/checkout/cart.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+LINE: 341
+FILE: catalog/controller/account/wishlist.php
+CODE: $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+LINE: 173
+FILE: catalog/controller/product/compare.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+LINE: 193
+FILE: catalog/controller/common/cart.php
+CODE: $image = '';
+LINE: 59
+CODE: $image = '';
+LINE: 93
+CODE: $data['popup'] = '';
+LINE: 285
+CODE: $data['thumb'] = '';
+LINE: 291
+CODE: $data['manufacturer'] = $product_info['manufacturer'];
+LINE: 266
+CODE: $data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+LINE: 304
+CODE: $data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+LINE: 311
+CODE: $this->model_tool_image->resize($option_value['image'], 50, 50),
+LINE: 383
+CODE: $this->load->model('catalog/product');
+LINE: 156
+CODE: if ($product_info['quantity'] <= 0) {
+LINE: 304
+CODE: 'thumb'       => $image,
+LINE: 485
+CODE: $this->load->model('catalog/product');
+LINE: 5
+LINE: 179
+CODE: 'thumb'        => $image,
+LINE: 118
+FILE: catalog/controller/module/category.php
+CODE: $this->load->model('catalog/product');
+LINE: 27
+CODE: 'thumb'       => $image,
+NOT FOUND!
+FILE: catalog/controller/module/special.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+FILE: catalog/controller/module/bestseller.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 58
+FILE: catalog/controller/module/latest.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 68
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 228
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 261
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 146
+CODE: $this->load->model('catalog/product');
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 229
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 149
+FILE: catalog/controller/module/featured.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 64
+CODE: $data['products'][] = array(
+LINE: 492
+CODE: 'thumb'       => $image,
+LINE: 494
+CODE: $data['products'][] = array(
+NOT FOUND!
+CODE: 'thumb'       => $image,
+NOT FOUND!
+CODE: $data['products'][] = array(
+LINE: 75
+CODE: 'thumb'       => $image,
+LINE: 77
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: 'thumb'       => $image,
+LINE: 67
+CODE: $data['products'][] = array(
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 74
+CODE: $data['products'][] = array(
+LINE: 84
+CODE: 'thumb'       => $image,
+LINE: 86
+CODE: $data['products'][] = array(
+LINE: 235
+CODE: 'thumb'       => $image,
+LINE: 237
+CODE: $data['products'][] = array(
+LINE: 268
+CODE: 'thumb'       => $image,
+LINE: 270
+CODE: $data['products'][] = array(
+LINE: 156
+CODE: 'thumb'       => $image,
+LINE: 158
+CODE: $data['products'][] = array(
+LINE: 236
+CODE: 'thumb'       => $image,
+LINE: 238
+CODE: $data['products'][] = array(
+LINE: 165
+CODE: 'thumb'       => $image,
+LINE: 167
+CODE: $data['products'][] = array(
+LINE: 71
+CODE: 'thumb'       => $image,
+LINE: 73
+FILE: catalog/controller/feed/google_sitemap.php
+CODE: $output .= '</urlset>';
+LINE: 85
+FILE: catalog/controller/common/seo_url.php
+CODE: if ($query->num_rows) {
+LINE: 47
+LINE: 134
+LINE: 167
+LINE: 203
+CODE: if ($url[0] == 'product_id') {
+LINE: 59
+CODE: if (!isset($this->request->get['route'])) {
+NOT FOUND!
+CODE: public function rewrite($link) {
+LINE: 109
+CODE: $key == 'path'
+LINE: 173
+CODE: if ($url) {
+LINE: 252
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+FILE: admin/controller/common/filemanager.php
+CODE: . 'catalog
+LINE: 13
+LINE: 15
+LINE: 70
+LINE: 212
+LINE: 214
+LINE: 295
+LINE: 297
+LINE: 351
+CODE: $name = str_split(basename($image), 14);
+LINE: 58
+FILE: admin/view/template/common/filemanager.tpl
+CODE: <div class="modal-dialog modal-lg">
+LINE: 39
+CODE: $('a.directory').on('click', function(e) {
+LINE: 122
+CODE: //--></script>
+LINE: 289
+----------------------------------------------------------------
+Modification::refresh - Processing ''
+Modification::refresh - Done ''
+----------------------------------------------------------------
+MOD: Fixed Header
+CODE: </footer>
+LINE: 43
+CODE: </footer>
+LINE: 21
+FILE: catalog/view/theme/default/template/common/header.tpl
+CODE: <header>
+LINE: 69
+FILE: catalog/view/theme/journal2/template/common/header.tpl
+CODE: <header>
+NOT FOUND!
+----------------------------------------------------------------
+Modification::refresh - Processing 'MagicToolbox mod for OpenCart'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/column_left.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/column_right.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/content_bottom.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/content_top.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/product.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/category.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/manufacturer.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/search.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/header.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/latest.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/bestseller.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/special.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/featured.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - Done 'MagicToolbox mod for OpenCart'
+----------------------------------------------------------------
+MOD: 
+----------------------------------------------------------------
+Modification::refresh - Processing 'Product Option Image - Main'
+Modification::refresh - Done 'Product Option Image - Main'
+----------------------------------------------------------------
+Modification::refresh - Processing 'Quick Checkout'
+Modification::refresh - Done 'Quick Checkout'
+----------------------------------------------------------------
+Modification::refresh - Processing 'Product Option Image - Show Option Image in Cart'
+Modification::refresh - Done 'Product Option Image - Show Option Image in Cart'
+----------------------------------------------------------------
+MOD: paypal-vnd
+FILE: catalog/model/payment/pp_standard.php
+CODE: $currencies = array(
+LINE: 17
+FILE: catalog/controller/payment/pp_standard.php
+CODE: $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
+LINE: 18
+CODE: $order_info = $this->model_checkout_order->getOrder($order_id);
+LINE: 148
+----------------------------------------------------------------
+Modification::refresh - Processing 'VQMod Manager Menu Shortcut'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/language/vietnamese/common/menu.php'
+  search = '$_['text_feed']                        = 'Feeds';'
+Modification::refresh - Done 'VQMod Manager Menu Shortcut'
+----------------------------------------------------------------
+Modification::refresh - Processing 'VQMOD CORE FOR OPENCART - DO NOT REMOVE'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/action.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/controller.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/controller.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/event.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/event.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/front.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/loader.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/model.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/model.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/registry.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/registry.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/affiliate.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/affiliate.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazon.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazon.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazonus.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazonus.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cache.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cache.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cart.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cart.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cba.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cba.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/config.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/currency.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/currency.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/customer.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/customer.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/db.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/db.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/document.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/document.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/ebay.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/ebay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/encryption.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/encryption.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/etsy.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/etsy.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/googleSetup.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/googleSetup.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/image.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/image.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/language.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/length.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/length.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/log.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/log.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/mail.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/mail.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/openbay.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/openbay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/pagination.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/pagination.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/request.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/request.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/response.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/response.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/session.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/session.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/tax.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/tax.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/url.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/url.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/user.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/user.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/weight.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/weight.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/feed.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/feed.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/installer.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/modification.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/modification.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/module.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/module.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/openbay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/payment.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/payment.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/shipping.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/shipping.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/total.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/total.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - Done 'VQMOD CORE FOR OPENCART - DO NOT REMOVE'
+----------------------------------------------------------------
+2016-04-01 0:55:19 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Journal2
+CODE: public function __construct($registry) {
+LINE: 15
+FILE: admin/controller/common/menu.php
+CODE: $this->load->language('common/menu');
+LINE: 3
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a class="parent"><?php echo $text_marketing; ?></a>
+LINE: 190
+FILE: admin/controller/marketing/contact.php
+CODE: $this->load->model('sale/customer');
+LINE: 97
+CODE: $email_total = $this->model_sale_customer->getTotalCustomers($customer_data);
+LINE: 124
+CODE: $results = $this->model_sale_customer->getCustomers($customer_data);
+LINE: 126
+FILE: admin/controller/tool/backup.php
+CODE: $this->error['warning'] = $this->language->get('error_empty');
+LINE: 25
+CODE: public function index() {
+LINE: 4
+FILE: admin/view/template/tool/backup.tpl
+CODE: <input type="file" name="import" id="input-import" />
+LINE: 36
+FILE: admin/model/tool/backup.php
+CODE: $values .= '\'' . $value . '\', ';
+LINE: 82
+CODE: $output .= 'TRUNCATE TABLE `' . $table . '`;' . "\n\n";
+LINE: 47
+CODE: $sql = trim($sql);
+LINE: 4
+FILE: catalog/controller/common/header.php
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 88
+FILE: catalog/controller/common/footer.php
+CODE: foreach ($this->model_catalog_information->getInformations() as $result) {
+LINE: 24
+FILE: system/library/response.php
+CODE: if ($this->output) {
+LINE: 58
+FILE: catalog/model/tool/image.php
+CODE: return $this->config->get('config_ssl') . 'image/' . $new_image;
+LINE: 37
+CODE: return $this->config->get('config_url') . 'image/' . $new_image;
+LINE: 39
+CODE: public function resize($filename, $width, $height) {
+LINE: 2
+CODE: $image->resize($width, $height);
+LINE: 29
+FILE: admin/model/extension/module.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "layout_module` WHERE `code` LIKE '%." . (int)$module_id . "'");
+LINE: 12
+CODE: public function deleteModulesByCode($code) {
+LINE: 37
+FILE: admin/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 110
+CODE: $this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 39
+FILE: catalog/controller/common/content_top.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/content_bottom.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/column_left.php
+CODE: $part = explode('.', $module['code']);
+LINE: 48
+FILE: catalog/controller/common/column_right.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "' AND position = '" . $this->db->escape($position) . "' ORDER BY sort_order");
+LINE: 13
+FILE: catalog/controller/product/product.php
+CODE: if ((float)$product_info['special']) {
+LINE: 311
+CODE: $data['products'][] = array(
+LINE: 449
+CODE: 'special'     => $special,
+LINE: 455
+FILE: catalog/controller/product/category.php
+CODE: $data['products'][] = array(
+LINE: 223
+CODE: 'special'     => $special,
+LINE: 229
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 256
+CODE: 'special'     => $special,
+LINE: 262
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 224
+CODE: 'special'     => $special,
+LINE: 230
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 141
+CODE: 'special'     => $special,
+LINE: 147
+FILE: catalog/controller/checkout/cart.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+LINE: 341
+FILE: catalog/controller/account/wishlist.php
+CODE: $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+LINE: 173
+FILE: catalog/controller/product/compare.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+LINE: 193
+FILE: catalog/controller/common/cart.php
+CODE: $image = '';
+LINE: 59
+CODE: $image = '';
+LINE: 93
+CODE: $data['popup'] = '';
+LINE: 285
+CODE: $data['thumb'] = '';
+LINE: 291
+CODE: $data['manufacturer'] = $product_info['manufacturer'];
+LINE: 266
+CODE: $data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+LINE: 304
+CODE: $data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+LINE: 311
+CODE: $this->model_tool_image->resize($option_value['image'], 50, 50),
+LINE: 383
+CODE: $this->load->model('catalog/product');
+LINE: 156
+CODE: if ($product_info['quantity'] <= 0) {
+LINE: 304
+CODE: 'thumb'       => $image,
+LINE: 485
+CODE: $this->load->model('catalog/product');
+LINE: 5
+LINE: 179
+CODE: 'thumb'        => $image,
+LINE: 118
+FILE: catalog/controller/module/category.php
+CODE: $this->load->model('catalog/product');
+LINE: 27
+CODE: 'thumb'       => $image,
+NOT FOUND!
+FILE: catalog/controller/module/special.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+FILE: catalog/controller/module/bestseller.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 58
+FILE: catalog/controller/module/latest.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 68
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 228
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 261
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 146
+CODE: $this->load->model('catalog/product');
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 229
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 149
+FILE: catalog/controller/module/featured.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 64
+CODE: $data['products'][] = array(
+LINE: 492
+CODE: 'thumb'       => $image,
+LINE: 494
+CODE: $data['products'][] = array(
+NOT FOUND!
+CODE: 'thumb'       => $image,
+NOT FOUND!
+CODE: $data['products'][] = array(
+LINE: 75
+CODE: 'thumb'       => $image,
+LINE: 77
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: 'thumb'       => $image,
+LINE: 67
+CODE: $data['products'][] = array(
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 74
+CODE: $data['products'][] = array(
+LINE: 84
+CODE: 'thumb'       => $image,
+LINE: 86
+CODE: $data['products'][] = array(
+LINE: 235
+CODE: 'thumb'       => $image,
+LINE: 237
+CODE: $data['products'][] = array(
+LINE: 268
+CODE: 'thumb'       => $image,
+LINE: 270
+CODE: $data['products'][] = array(
+LINE: 156
+CODE: 'thumb'       => $image,
+LINE: 158
+CODE: $data['products'][] = array(
+LINE: 236
+CODE: 'thumb'       => $image,
+LINE: 238
+CODE: $data['products'][] = array(
+LINE: 165
+CODE: 'thumb'       => $image,
+LINE: 167
+CODE: $data['products'][] = array(
+LINE: 71
+CODE: 'thumb'       => $image,
+LINE: 73
+FILE: catalog/controller/feed/google_sitemap.php
+CODE: $output .= '</urlset>';
+LINE: 85
+FILE: catalog/controller/common/seo_url.php
+CODE: if ($query->num_rows) {
+LINE: 47
+LINE: 134
+LINE: 167
+LINE: 203
+CODE: if ($url[0] == 'product_id') {
+LINE: 59
+CODE: if (!isset($this->request->get['route'])) {
+NOT FOUND!
+CODE: public function rewrite($link) {
+LINE: 109
+CODE: $key == 'path'
+LINE: 173
+CODE: if ($url) {
+LINE: 252
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+FILE: admin/controller/common/filemanager.php
+CODE: . 'catalog
+LINE: 13
+LINE: 15
+LINE: 70
+LINE: 212
+LINE: 214
+LINE: 295
+LINE: 297
+LINE: 351
+CODE: $name = str_split(basename($image), 14);
+LINE: 58
+FILE: admin/view/template/common/filemanager.tpl
+CODE: <div class="modal-dialog modal-lg">
+LINE: 39
+CODE: $('a.directory').on('click', function(e) {
+LINE: 122
+CODE: //--></script>
+LINE: 289
+----------------------------------------------------------------
+Modification::refresh - Processing ''
+Modification::refresh - Done ''
+----------------------------------------------------------------
+MOD: Fixed Header
+CODE: </footer>
+LINE: 43
+CODE: </footer>
+LINE: 21
+FILE: catalog/view/theme/default/template/common/header.tpl
+CODE: <header>
+LINE: 69
+FILE: catalog/view/theme/journal2/template/common/header.tpl
+CODE: <header>
+NOT FOUND!
+----------------------------------------------------------------
+Modification::refresh - Processing 'MagicToolbox mod for OpenCart'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/column_left.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/column_right.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/content_bottom.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/content_top.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/product.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/category.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/manufacturer.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/search.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/header.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/latest.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/bestseller.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/special.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/featured.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - Done 'MagicToolbox mod for OpenCart'
+----------------------------------------------------------------
+MOD: 
+----------------------------------------------------------------
+Modification::refresh - Processing 'Product Option Image - Main'
+Modification::refresh - Done 'Product Option Image - Main'
+----------------------------------------------------------------
+Modification::refresh - Processing 'Quick Checkout'
+Modification::refresh - Done 'Quick Checkout'
+----------------------------------------------------------------
+Modification::refresh - Processing 'Product Option Image - Show Option Image in Cart'
+Modification::refresh - Done 'Product Option Image - Show Option Image in Cart'
+----------------------------------------------------------------
+MOD: paypal-vnd
+FILE: catalog/model/payment/pp_standard.php
+CODE: $currencies = array(
+LINE: 17
+FILE: catalog/controller/payment/pp_standard.php
+CODE: $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
+LINE: 18
+CODE: $order_info = $this->model_checkout_order->getOrder($order_id);
+LINE: 148
+----------------------------------------------------------------
+Modification::refresh - Processing 'VQMod Manager Menu Shortcut'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/language/vietnamese/common/menu.php'
+  search = '$_['text_feed']                        = 'Feeds';'
+Modification::refresh - Done 'VQMod Manager Menu Shortcut'
+----------------------------------------------------------------
+Modification::refresh - Processing 'VQMOD CORE FOR OPENCART - DO NOT REMOVE'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/action.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/controller.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/controller.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/event.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/event.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/front.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/loader.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/model.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/model.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/registry.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/registry.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/affiliate.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/affiliate.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazon.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazon.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazonus.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazonus.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cache.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cache.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cart.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cart.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cba.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cba.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/config.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/currency.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/currency.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/customer.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/customer.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/db.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/db.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/document.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/document.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/ebay.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/ebay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/encryption.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/encryption.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/etsy.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/etsy.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/googleSetup.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/googleSetup.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/image.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/image.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/language.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/length.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/length.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/log.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/log.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/mail.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/mail.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/openbay.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/openbay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/pagination.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/pagination.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/request.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/request.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/response.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/response.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/session.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/session.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/tax.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/tax.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/url.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/url.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/user.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/user.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/weight.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/weight.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/feed.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/feed.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/installer.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/modification.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/modification.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/module.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/module.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/openbay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/payment.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/payment.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/shipping.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/shipping.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/total.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/total.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - Done 'VQMOD CORE FOR OPENCART - DO NOT REMOVE'
+----------------------------------------------------------------
+MOD: Price Range Based Product Filter
+CODE: if (!empty($data['filter_manufacturer_id'])) {
+LINE: 144
+LINE: 493
+CODE: public function getProductSpecials($data = array()) {
+LINE: 201
+CODE: public function getTotalProductSpecials() {
+LINE: 514
+CODE: GROUP BY ps.product_id
+LINE: 206
+CODE: 'filter_filter'      => $filter,
+LINE: 186
+CODE: 'filter_manufacturer_id' => $manufacturer_id,
+LINE: 187
+CODE: 'sort'  => $sort,
+LINE: 96
+CODE: 'filter_name'         => $search,
+LINE: 215
+CODE: $url = '';
+LINE: 64
+LINE: 158
+LINE: 292
+LINE: 370
+LINE: 408
+LINE: 465
+CODE: if (isset($this->request->get['sort'])) {
+LINE: 49
+LINE: 110
+LINE: 225
+LINE: 454
+LINE: 509
+LINE: 587
+CODE: $url = '';
+LINE: 139
+LINE: 283
+LINE: 357
+LINE: 391
+LINE: 444
+CODE: if (isset($this->request->get['sort'])) {
+LINE: 114
+LINE: 185
+LINE: 420
+LINE: 471
+LINE: 545
+CODE: $url = '';
+LINE: 48
+LINE: 206
+LINE: 280
+LINE: 314
+CODE: if (isset($this->request->get['sort'])) {
+LINE: 32
+LINE: 94
+LINE: 343
+LINE: 394
+CODE: $url = '';
+LINE: 97
+LINE: 315
+LINE: 409
+LINE: 463
+CODE: if (isset($this->request->get['sort'])) {
+LINE: 75
+LINE: 163
+LINE: 492
+LINE: 563
+----------------------------------------------------------------
+2016-04-01 0:55:23 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Journal2
+CODE: public function __construct($registry) {
+LINE: 15
+FILE: admin/controller/common/menu.php
+CODE: $this->load->language('common/menu');
+LINE: 3
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a class="parent"><?php echo $text_marketing; ?></a>
+LINE: 190
+FILE: admin/controller/marketing/contact.php
+CODE: $this->load->model('sale/customer');
+LINE: 97
+CODE: $email_total = $this->model_sale_customer->getTotalCustomers($customer_data);
+LINE: 124
+CODE: $results = $this->model_sale_customer->getCustomers($customer_data);
+LINE: 126
+FILE: admin/controller/tool/backup.php
+CODE: $this->error['warning'] = $this->language->get('error_empty');
+LINE: 25
+CODE: public function index() {
+LINE: 4
+FILE: admin/view/template/tool/backup.tpl
+CODE: <input type="file" name="import" id="input-import" />
+LINE: 36
+FILE: admin/model/tool/backup.php
+CODE: $values .= '\'' . $value . '\', ';
+LINE: 82
+CODE: $output .= 'TRUNCATE TABLE `' . $table . '`;' . "\n\n";
+LINE: 47
+CODE: $sql = trim($sql);
+LINE: 4
+FILE: catalog/controller/common/header.php
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 88
+FILE: catalog/controller/common/footer.php
+CODE: foreach ($this->model_catalog_information->getInformations() as $result) {
+LINE: 24
+FILE: system/library/response.php
+CODE: if ($this->output) {
+LINE: 58
+FILE: catalog/model/tool/image.php
+CODE: return $this->config->get('config_ssl') . 'image/' . $new_image;
+LINE: 37
+CODE: return $this->config->get('config_url') . 'image/' . $new_image;
+LINE: 39
+CODE: public function resize($filename, $width, $height) {
+LINE: 2
+CODE: $image->resize($width, $height);
+LINE: 29
+FILE: admin/model/extension/module.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "layout_module` WHERE `code` LIKE '%." . (int)$module_id . "'");
+LINE: 12
+CODE: public function deleteModulesByCode($code) {
+LINE: 37
+FILE: admin/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 110
+CODE: $this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");
+LINE: 39
+FILE: catalog/controller/common/content_top.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/content_bottom.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/controller/common/column_left.php
+CODE: $part = explode('.', $module['code']);
+LINE: 48
+FILE: catalog/controller/common/column_right.php
+CODE: $part = explode('.', $module['code']);
+LINE: 46
+FILE: catalog/model/design/layout.php
+CODE: $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "' AND position = '" . $this->db->escape($position) . "' ORDER BY sort_order");
+LINE: 13
+FILE: catalog/controller/product/product.php
+CODE: if ((float)$product_info['special']) {
+LINE: 311
+CODE: $data['products'][] = array(
+LINE: 449
+CODE: 'special'     => $special,
+LINE: 455
+FILE: catalog/controller/product/category.php
+CODE: $data['products'][] = array(
+LINE: 223
+CODE: 'special'     => $special,
+LINE: 229
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 256
+CODE: 'special'     => $special,
+LINE: 262
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 224
+CODE: 'special'     => $special,
+LINE: 230
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 141
+CODE: 'special'     => $special,
+LINE: 147
+FILE: catalog/controller/checkout/cart.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+LINE: 341
+FILE: catalog/controller/account/wishlist.php
+CODE: $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+LINE: 173
+FILE: catalog/controller/product/compare.php
+CODE: $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+LINE: 193
+FILE: catalog/controller/common/cart.php
+CODE: $image = '';
+LINE: 59
+CODE: $image = '';
+LINE: 93
+CODE: $data['popup'] = '';
+LINE: 285
+CODE: $data['thumb'] = '';
+LINE: 291
+CODE: $data['manufacturer'] = $product_info['manufacturer'];
+LINE: 266
+CODE: $data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+LINE: 304
+CODE: $data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+LINE: 311
+CODE: $this->model_tool_image->resize($option_value['image'], 50, 50),
+LINE: 383
+CODE: $this->load->model('catalog/product');
+LINE: 156
+CODE: if ($product_info['quantity'] <= 0) {
+LINE: 304
+CODE: 'thumb'       => $image,
+LINE: 485
+CODE: $this->load->model('catalog/product');
+LINE: 5
+LINE: 179
+CODE: 'thumb'        => $image,
+LINE: 118
+FILE: catalog/controller/module/category.php
+CODE: $this->load->model('catalog/product');
+LINE: 27
+CODE: 'thumb'       => $image,
+NOT FOUND!
+FILE: catalog/controller/module/special.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+FILE: catalog/controller/module/bestseller.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 58
+FILE: catalog/controller/module/latest.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 65
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 68
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 228
+CODE: $this->load->model('catalog/product');
+LINE: 7
+CODE: 'thumb'       => $image,
+LINE: 261
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 146
+CODE: $this->load->model('catalog/product');
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 229
+CODE: $this->load->model('catalog/product');
+LINE: 5
+CODE: 'thumb'       => $image,
+LINE: 149
+FILE: catalog/controller/module/featured.php
+CODE: $this->load->model('catalog/product');
+LINE: 13
+CODE: 'thumb'       => $image,
+LINE: 64
+CODE: $data['products'][] = array(
+LINE: 492
+CODE: 'thumb'       => $image,
+LINE: 494
+CODE: $data['products'][] = array(
+NOT FOUND!
+CODE: 'thumb'       => $image,
+NOT FOUND!
+CODE: $data['products'][] = array(
+LINE: 75
+CODE: 'thumb'       => $image,
+LINE: 77
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: 'thumb'       => $image,
+LINE: 67
+CODE: $data['products'][] = array(
+LINE: 72
+CODE: 'thumb'       => $image,
+LINE: 74
+CODE: $data['products'][] = array(
+LINE: 84
+CODE: 'thumb'       => $image,
+LINE: 86
+CODE: $data['products'][] = array(
+LINE: 235
+CODE: 'thumb'       => $image,
+LINE: 237
+CODE: $data['products'][] = array(
+LINE: 268
+CODE: 'thumb'       => $image,
+LINE: 270
+CODE: $data['products'][] = array(
+LINE: 156
+CODE: 'thumb'       => $image,
+LINE: 158
+CODE: $data['products'][] = array(
+LINE: 236
+CODE: 'thumb'       => $image,
+LINE: 238
+CODE: $data['products'][] = array(
+LINE: 165
+CODE: 'thumb'       => $image,
+LINE: 167
+CODE: $data['products'][] = array(
+LINE: 71
+CODE: 'thumb'       => $image,
+LINE: 73
+FILE: catalog/controller/feed/google_sitemap.php
+CODE: $output .= '</urlset>';
+LINE: 85
+FILE: catalog/controller/common/seo_url.php
+CODE: if ($query->num_rows) {
+LINE: 47
+LINE: 134
+LINE: 167
+LINE: 203
+CODE: if ($url[0] == 'product_id') {
+LINE: 59
+CODE: if (!isset($this->request->get['route'])) {
+NOT FOUND!
+CODE: public function rewrite($link) {
+LINE: 109
+CODE: $key == 'path'
+LINE: 173
+CODE: if ($url) {
+LINE: 252
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+CODE: $layout_id = 0;
+LINE: 11
+FILE: admin/controller/common/filemanager.php
+CODE: . 'catalog
+LINE: 13
+LINE: 15
+LINE: 70
+LINE: 212
+LINE: 214
+LINE: 295
+LINE: 297
+LINE: 351
+CODE: $name = str_split(basename($image), 14);
+LINE: 58
+FILE: admin/view/template/common/filemanager.tpl
+CODE: <div class="modal-dialog modal-lg">
+LINE: 39
+CODE: $('a.directory').on('click', function(e) {
+LINE: 122
+CODE: //--></script>
+LINE: 289
+----------------------------------------------------------------
+Modification::refresh - Processing ''
+Modification::refresh - Done ''
+----------------------------------------------------------------
+MOD: Fixed Header
+CODE: </footer>
+LINE: 43
+CODE: </footer>
+LINE: 21
+FILE: catalog/view/theme/default/template/common/header.tpl
+CODE: <header>
+LINE: 69
+FILE: catalog/view/theme/journal2/template/common/header.tpl
+CODE: <header>
+NOT FOUND!
+----------------------------------------------------------------
+Modification::refresh - Processing 'MagicToolbox mod for OpenCart'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/column_left.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/column_right.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/content_bottom.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/content_top.php'
+  search = 'if (isset($part[1]) && isset($setting[$part[1]])) {'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/product.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/category.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/manufacturer.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/product/search.php'
+  search = '/\$this\->response\->setOutput\(\$this\->render\((?:TRUE)?\)(?:\,\s+\$this\->config\->get\(\'config_compression\'\))?\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/common/header.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/latest.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/bestseller.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/special.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/catalog/controller/module/featured.php'
+  search = '/\$this\-\>render\(\);/ims'
+Modification::refresh - Done 'MagicToolbox mod for OpenCart'
+----------------------------------------------------------------
+MOD: 
+----------------------------------------------------------------
+Modification::refresh - Processing 'Product Option Image - Main'
+Modification::refresh - Done 'Product Option Image - Main'
+----------------------------------------------------------------
+Modification::refresh - Processing 'Quick Checkout'
+Modification::refresh - Done 'Quick Checkout'
+----------------------------------------------------------------
+Modification::refresh - Processing 'Product Option Image - Show Option Image in Cart'
+Modification::refresh - Done 'Product Option Image - Show Option Image in Cart'
+----------------------------------------------------------------
+MOD: paypal-vnd
+FILE: catalog/model/payment/pp_standard.php
+CODE: $currencies = array(
+LINE: 17
+FILE: catalog/controller/payment/pp_standard.php
+CODE: $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
+LINE: 18
+CODE: $order_info = $this->model_checkout_order->getOrder($order_id);
+LINE: 148
+----------------------------------------------------------------
+Modification::refresh - Processing 'VQMod Manager Menu Shortcut'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/language/vietnamese/common/menu.php'
+  search = '$_['text_feed']                        = 'Feeds';'
+Modification::refresh - Done 'VQMod Manager Menu Shortcut'
+----------------------------------------------------------------
+Modification::refresh - Processing 'VQMOD CORE FOR OPENCART - DO NOT REMOVE'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/action.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/controller.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/controller.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/event.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/event.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/front.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/loader.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/model.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/model.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/registry.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/engine/registry.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/affiliate.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/affiliate.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazon.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazon.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazonus.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/amazonus.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cache.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cache.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cart.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cart.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cba.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/cba.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/config.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/currency.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/currency.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/customer.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/customer.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/db.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/db.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/document.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/document.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/ebay.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/ebay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/encryption.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/encryption.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/etsy.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/etsy.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/googleSetup.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/googleSetup.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/image.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/image.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/language.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/length.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/length.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/log.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/log.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/mail.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/mail.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/openbay.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/openbay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/pagination.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/pagination.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/request.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/request.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/response.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/response.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/session.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/session.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/tax.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/tax.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/url.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/url.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/user.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/user.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/weight.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/system/library/weight.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/feed.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/feed.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/installer.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/modification.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/modification.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/module.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/module.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/openbay.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/payment.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/payment.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/shipping.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/shipping.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/total.php'
+  search = '~(require|include)(_once)?\((?!modification\()([^)]+)~'
+Modification::refresh - SEARCH NOT FOUND (SKIPPED):
+  file name = '/home/laasvn/public_html/admin/controller/extension/total.php'
+  search = '~(require|include)(_once)?\(modification\(([^)]+)~'
+Modification::refresh - Done 'VQMOD CORE FOR OPENCART - DO NOT REMOVE'
+----------------------------------------------------------------
+MOD: Price Range Based Product Filter
+CODE: if (!empty($data['filter_manufacturer_id'])) {
+LINE: 144
+LINE: 493
+CODE: public function getProductSpecials($data = array()) {
+LINE: 201
+CODE: public function getTotalProductSpecials() {
+LINE: 514
+CODE: GROUP BY ps.product_id
+LINE: 206
+CODE: 'filter_filter'      => $filter,
+LINE: 186
+CODE: 'filter_manufacturer_id' => $manufacturer_id,
+LINE: 187
+CODE: 'sort'  => $sort,
+LINE: 96
+CODE: 'filter_name'         => $search,
+LINE: 215
+CODE: $url = '';
+LINE: 64
+LINE: 158
+LINE: 292
+LINE: 370
+LINE: 408
+LINE: 465
+CODE: if (isset($this->request->get['sort'])) {
+LINE: 49
+LINE: 110
+LINE: 225
+LINE: 454
+LINE: 509
+LINE: 587
+CODE: $url = '';
+LINE: 139
+LINE: 283
+LINE: 357
+LINE: 391
+LINE: 444
+CODE: if (isset($this->request->get['sort'])) {
+LINE: 114
+LINE: 185
+LINE: 420
+LINE: 471
+LINE: 545
+CODE: $url = '';
+LINE: 48
+LINE: 206
+LINE: 280
+LINE: 314
+CODE: if (isset($this->request->get['sort'])) {
+LINE: 32
+LINE: 94
+LINE: 343
+LINE: 394
+CODE: $url = '';
+LINE: 97
+LINE: 315
+LINE: 409
+LINE: 463
+CODE: if (isset($this->request->get['sort'])) {
+LINE: 75
+LINE: 163
+LINE: 492
+LINE: 563
+----------------------------------------------------------------

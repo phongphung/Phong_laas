@@ -1,0 +1,186 @@
+<modification>
+
+   <name>paypal-vnd</name>
+
+    <version>2.0.x</version>
+
+    <author>Khoa trumcuoi</author>
+
+    <link></link>
+
+    <code>Khoa trum cuoi</code>    	             
+
+
+
+	<file path="catalog/model/payment/pp_standard.php">
+
+		<operation>
+
+			<search position="after">
+
+				 <![CDATA[
+				 
+				 	$currencies = array(
+					
+					]]>
+
+			</search>
+
+			<add>
+
+			 <![CDATA[
+					'VND',
+			 
+
+			 ]]>
+
+			</add>	
+
+		</operation>		
+
+	</file>	
+<file path="catalog/model/payment/ppstandard.php">
+
+		<operation>
+
+			<search position="after">
+
+				 <![CDATA[
+				 
+				 	$currencies = array(
+					
+					]]>
+
+			</search>
+
+			<add>
+
+			 <![CDATA[
+					'VND',
+			 
+
+			 ]]>
+
+			</add>	
+
+		</operation>		
+
+	</file>	
+	
+	<file path="catalog/controller/payment/pp_standard.php">
+
+		<operation>
+
+			<search position="after">
+
+				 <![CDATA[
+				 
+				 	$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
+					
+					]]>
+
+			</search>
+
+			<add>
+
+			 <![CDATA[
+					$pp_access = array(
+			'AUD',
+			'CAD',
+			'EUR',
+			'GBP',
+			'JPY',
+			'USD',
+			'NZD',
+			'CHF',
+			'HKD',
+			'SGD',
+			'SEK',
+			'DKK',
+			'PLN',
+			'NOK',
+			'HUF',
+			'CZK',
+			'ILS',
+			'MXN',
+			'MYR',
+			'BRL',
+			'PHP',
+			'TWD',
+			'THB',
+			'TRY',
+			'RUB'
+		);
+		if (!in_array(strtoupper($order_info['currency_code']), $pp_access)) {
+			$order_info['currency_code'] = 'USD';	
+		}
+			 
+
+			 ]]>
+
+			</add>	
+
+		</operation>	
+		
+		<operation>
+
+			<search position="after">
+
+				 <![CDATA[
+				 
+				 	$order_info = $this->model_checkout_order->getOrder($order_id);
+					
+					]]>
+
+			</search>
+
+			<add>
+
+			 <![CDATA[
+					$pp_access = array(
+			'AUD',
+			'CAD',
+			'EUR',
+			'GBP',
+			'JPY',
+			'USD',
+			'NZD',
+			'CHF',
+			'HKD',
+			'SGD',
+			'SEK',
+			'DKK',
+			'PLN',
+			'NOK',
+			'HUF',
+			'CZK',
+			'ILS',
+			'MXN',
+			'MYR',
+			'BRL',
+			'PHP',
+			'TWD',
+			'THB',
+			'TRY',
+			'RUB'
+		);
+		if (!in_array(strtoupper($order_info['currency_code']), $pp_access)) {
+			$order_info['currency_code'] = 'USD';	
+		}
+			 
+
+			 ]]>
+
+			</add>	
+
+		</operation>	
+
+	</file>	
+
+	
+
+	
+
+	
+
+</modification>

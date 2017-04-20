@@ -1,0 +1,73 @@
+.journal-header-center .journal-menu.fixed {
+	top:-15px !important;
+
+}
+#container .breadcrumb{
+	padding-top: 0px;
+	padding-bottom:0px;
+}
+.breadcrumb a{
+	text-transform:none;
+}
+body{
+	margin:0px;
+	position:relative;
+	top:-10px;
+}
+
+.product-page-content .product-page .heading-title{
+	font-size:25px !important;
+}
+
+.product-info .right .price-new, .product-info .right .product-price{
+	font-size:25px !important;
+	margin-bottom:30px;
+}
+
+.boxed-header header.journal-header-center{
+	margin-bottom:0px;
+}
+
+.slideshow {
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow .slide-image {
+  position: absolute;
+}
+
+@media only screen and (max-width: 768px) {
+  .trigger-on-mobile, .hide-li-all-on-desktop {
+    display: block !important;
+  }
+  
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+.super-menu > li > a.trigger-on-mobile, .hide-li-all-on-desktop, .super-menu > li > a.hide-link-no-submenu, .drop-down ul li a.hide-link-no-submenu, .drop-down ul li a.trigger-on-mobile{
+  display: none;
+}
+
+/*.drop-down-on-mobile {
+  display: none;
+}
+  .fix-overlap-on-mobile {
+    top: 105px;
+  }*/
+  
+@media only screen and (max-width: 375px) {
+	.trigger-on-mobile, .hide-li-all-on-desktop {
+    display: block !important;
+	}
+  
+	.hide-on-mobile {
+    display: none;
+	}
+	.super-menu{
+		max-height:400px;
+		overflow:auto;
+	}
+}

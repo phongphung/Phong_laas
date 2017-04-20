@@ -1,0 +1,27 @@
+<modification>
+	<name>Bnit Zoom</name>
+	<version>1.0</version>
+	<vqmver>2.x</vqmver>
+	<author>BNIT.it</author>
+	<link>http://www.bnit.it/</link>
+
+	<file path="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search position="before"><![CDATA[</body>]]></search>
+			<add><![CDATA[
+				<script src="catalog/view/javascript/jquery.elevatezoom.min.js" type="text/javascript"></script>
+				<script type="text/javascript">
+$(document).ready(function(){$("#zoom_01").elevateZoom({cursor:"crosshair",zoomWindowFadeIn:500,zoomWindowFadeOut:750,lensFadeIn:500,lensFadeOut:500})}),$(window).on("resize",function(){var o=$(this);$("#zoom_01").elevateZoom(o.width()<900?{cursor:"crosshair",zoomType:"inner",zoomWindowFadeIn:500,zoomWindowFadeOut:750,lensFadeIn:500,lensFadeOut:500}:{cursor:"crosshair",zoomType:"window",zoomWindowFadeIn:500,zoomWindowFadeOut:750,lensFadeIn:500,lensFadeOut:500})});
+				</script>  
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/product/product.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<?php echo $thumb; ?>"]]></search>
+			<add><![CDATA[<?php echo $thumb; ?>" id="zoom_01" data-zoom-image="<?php echo $popup; ?>" ]]></add>
+		</operation>
+	</file>
+	
+
+</modification>

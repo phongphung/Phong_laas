@@ -1,0 +1,19 @@
+#option-value .color
+{
+	display: none;
+}
+
+#option-value.color .color
+{
+	display: block;
+}
+
+#option-value.color td.color
+{
+	display: table-cell;
+}
+
+#option-value.color .image
+{
+	display: none;
+}

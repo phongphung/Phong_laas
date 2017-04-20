@@ -1,0 +1,35 @@
+.quickcheckoutleft {
+	width: 28%;
+	float:left;
+}
+.quickcheckoutright {
+	width: 32%;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.quickcheckoutmid {
+	width: 100%;
+}
+.extra-width {
+	width: 37%;
+}
+#quickcheckoutconfirm .col-sm-6 {
+	width: 95% !important;
+}
+#cart1 {
+	padding-top: 30px;
+}
+#cart1 {
+	overflow: auto;
+}
+table.quickcheckout-cart {
+	overflow: auto;
+}
+.quickcheckout-cart td.image img {
+	width: 30px;
+	height: auto;
+}
+.checkout-note{
+	width:94%;
+}

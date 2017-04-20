@@ -1,0 +1,12 @@
+.quickcheckout-heading{font-weight:bold;font-size:16px;color:#000;margin-top:10px;text-align:left}.quickcheckout-content{border:1px
+solid #ddd;padding:10px;overflow:auto;color:#000;margin-bottom:10px}.or{text-align:center;width:100%;font-size:24px;color:#aaa}.hide{display:none !important}#quickcheckoutconfirm .col-sm-6{float:none !important;display:inline-block !important;width:30% !important;vertical-align:top}.oc2 .required
+label{vertical-align:top}table.quickcheckout-cart{width:100%;border-collapse:collapse;border-top:1px solid #DDD;border-left:1px solid #DDD;border-right:1px solid #DDD}.quickcheckout-cart thead
+td{background-color:#F7F7F7;border-bottom:1px solid #DDD;color:#4D4D4D;font-weight:bold;text-align:left;padding:7px}.quickcheckout-cart tbody
+td{border-bottom:1px solid #eee;vertical-align:top;padding:7px}.quickcheckout-cart
+td.image{width:10%;text-align:center}.quickcheckout-cart td.image
+img{border:1px
+solid #DDD}.quickcheckout-cart
+td.name{width:30%;text-align:left}.quickcheckout-cart
+td.quantity{width:20%;text-align:left;min-width:150px !important}.quickcheckout-cart td.quantity > img, .quickcheckout-cart td.quantity>a{position:relative;top:4px;cursor:pointer}.quickcheckout-cart
+td.price{text-align:right;width:20%}.quickcheckout-cart
+td.total{width:20%;text-align:right;padding-right:10px}#voucher-heading{background:#eee;cursor:pointer;width:100%;padding:10px;font-weight:bold;margin-bottom:5px}#coupon-heading{background:#eee;cursor:pointer;width:100%;padding:10px;font-weight:bold;margin-bottom:5px}#reward-heading{background:#eee;cursor:pointer;width:100%;padding:10px;font-weight:bold;margin-bottom:5px}#voucher-content{display:none}#coupon-content{display:none;margin-bottom:15px}#reward-content{display:none;margin-bottom:15px}.checkout-content{display:block !important}.fa-5x{font-size:5em !important}.quickcheckout-content>.control-label>input[type='text']{width:90% !important}@media (max-width: 760px){#content{width:95% !important}}

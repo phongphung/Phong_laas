@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<modification>
+	<id>Product Option Image - Main</id>
+	<version>2.0.0</version>
+	<vqmver>2.5.x</vqmver>
+	<author>WeDoWeb.com.au - contact@wedoweb.com.au</author>
+	<!-- Option image -->
+	<file name="admin/view/template/catalog/product_form.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<li><a href="#tab-option' + option_row + ']]></search>
+			<add><![CDATA[<li><input type="hidden" id="option-' + option_row + '" value="'+item['type']+'"/><a href="#tab-option' + option_row + ']]></add>
+		</operation>                
+		<operation>
+			<search position="replace"><![CDATA[<li><a href="#tab-option<?php echo $option_row; ?>"]]></search>
+			<add><![CDATA[<li><input type="hidden" id="option-<?php echo $option_row; ?>" value="<?php echo $product_option['type']; ?>"/><a href="#tab-option<?php echo $option_row; ?>"]]></add>
+		</operation>
+		<operation>
+			<search position="before" index="2"><![CDATA[html += '  <td class="text-left"><button type="button"]]></search>
+			<add><![CDATA[
+				var myElement = document.getElementById('option-' + option_row).value;	   
+				if(myElement != 'checkbox'){
+					html += '  <td class="text-left"><a href="" id="thumb-image-option' + option_value_row + '" data-toggle="image" class="img-thumbnail"><img src="<?php echo $placeholder; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a><input type="hidden" name="product_option['+ option_row +'][product_option_value][' + option_value_row + '][image]" value="" id="input-image-option' + option_value_row + '" /></td>';
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<td class="text-left"><button type="button" onclick="$(this).tooltip('destroy')]]></search>
+			<add><![CDATA[
+				<!--Product Option Image starts-->
+				<?php if($product_option['type'] != 'checkbox') { ?>
+					<td class="text-left">
+						<a href="" id="thumb-image-option<?php echo $option_row; ?>-<?php echo $option_value_row; ?>" data-toggle="image" class="img-thumbnail"><img src="<?php echo $product_option_value['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
+						<input type="hidden" name="product_option[<?php echo $option_row; ?>][product_option_value][<?php echo $option_value_row; ?>][image]" value="<?php echo $product_option_value['image']; ?>" id="input-image-option<?php echo $option_row; ?>-<?php echo $option_value_row; ?>" />
+					</td>
+				<?php } ?>
+				<!--Product Option Image ends-->
+			]]></add>
+		</operation>   
+		<operation>
+			<search position="after" index="1"><![CDATA[<td class="text-right"><?php echo $entry_weight; ?></td>]]></search>
+			<add><![CDATA[
+				<!--Product Option Image starts-->
+				<?php if($product_option['type'] != 'checkbox'){?>
+					<td class="text-right"><?php echo $entry_image; ?></td>
+				<?php } ?>]]></add>
+				<!--Product Option Image ends-->
+		</operation> 
+		<operation>
+			<search position="before" index="1"><![CDATA[html += '        <td></td>';]]></search>
+			<add><![CDATA[
+				if(item['type'] != 'checkbox'){
+				html += '        <td class="right"><?php echo $entry_image; ?></td>';
+				}]]></add>
+		</operation>
+		<operation error="skip">
+			<search position="replace" index="1"><![CDATA[<td colspan="6"></td>]]></search>
+			<add><![CDATA[
+				<?php if($product_option['type'] != 'checkbox'){?><td colspan="7"></td>
+				<?php } else { ?><td colspan="6"></td>
+				<?php } ?>]]></add>
+		</operation>
+		<operation error="skip">
+			<search position="replace" index="1"><![CDATA[html += '        <td colspan="6"></td>';]]></search>
+			<add><![CDATA[
+				if(item['type'] != 'checkbox'){
+				html += '        <td colspan="7"></td>';
+				} else {
+				html += '        <td colspan="6"></td>';
+				}]]></add>
+		</operation>
+	</file>
+  
+	<file name="admin/model/catalog/product.php">    
+		<operation>
+			<search position="before"><![CDATA[$this->db->query("INSERT INTO " . DB_PREFIX . "product_option_value]]></search>
+			<add><![CDATA[
+				if(isset($product_option_value['image'])){
+                    $optionValueImages = ",image_product_option_value = '" . $this->db->escape(html_entity_decode($product_option_value['image'], ENT_QUOTES, 'UTF-8')) . "'";
+				}
+                else {
+					$optionValueImages = ""; 
+				}
+				]]></add>
+		</operation> 
+		<operation>
+			<search position="replace" index="1,2"><![CDATA[weight_prefix = '" . $this->db->escape($product_option_value['weight_prefix']) . "']]></search>
+			<add><![CDATA[weight_prefix = '" . $this->db->escape($product_option_value['weight_prefix']) . "'". $optionValueImages ."]]></add>
+		</operation> 
+		<operation>
+			<search position="after"><![CDATA[=> $product_option_value['weight'],]]></search>
+			<add><![CDATA['image' => $product_option_value['image_product_option_value'],]]></add>
+		</operation>          
+	</file>  
+  
+	<file name="admin/controller/catalog/product.php"> 
+		<operation>
+			<search position="after"><![CDATA[=> $product_option_value['weight'],]]></search>
+			<add><![CDATA[
+				'image'  => is_file(DIR_IMAGE . $product_option_value['image']) 
+				? $product_option_value['image'] 
+				: '',
+				'thumb'  => is_file(DIR_IMAGE . $product_option_value['image']) 
+				? $this->model_tool_image->resize($product_option_value['image'], 100, 100)
+				: $this->model_tool_image->resize('no_image.png', 100, 100),
+			]]></add>
+		</operation>
+	</file>
+	<!-- End option image  -->
+  
+	<!-- Change to selected option image -->
+	<file name="catalog/model/catalog/product.php"> 
+		<operation>
+			<search position="after"><![CDATA[=> $product_option_value['weight'],]]></search>
+			<add><![CDATA[
+				'image_product_option_value' => $product_option_value['image_product_option_value'],
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/controller/product/product.php">    
+		<operation>
+			<search position="after"><![CDATA[$product_option_value_data[] = array(]]></search>
+			<add><![CDATA[
+				//BOF Product Option Image	  
+				'image_product_option_value' => $this->getImageProductOptionValue($option_value['image'], $option_value['image_product_option_value']),
+				'image_product_option_value_colorbox' => $this->getImageProductOptionValueColorBox($option_value['image'], $option_value['image_product_option_value']),
+				//EOF Product Option Image
+			]]></add>
+		</operation>  
+		<operation>
+			<search position="before" index="1"><![CDATA[function index()]]></search>
+			<add><![CDATA[
+				//BOF Product Option Image
+				function getImageProductOptionValue($option_value_image, $option_value_image_product_option_value)
+				{
+					$optionImageSrc = $this->getOptionImageSrc($option_value_image, $option_value_image_product_option_value);
+
+					if($optionImageSrc == 'NA')
+						return $optionImageSrc;
+
+					return $this->model_tool_image->resize($optionImageSrc,
+						$this->config->get('config_image_thumb_width'),
+						$this->config->get('config_image_thumb_height'));
+				}
+
+				function getImageProductOptionValueColorBox($option_value_image, $option_value_image_product_option_value)
+				{
+					$optionImageSrc = $this->getOptionImageSrc($option_value_image, $option_value_image_product_option_value);
+
+					if($optionImageSrc == 'NA')
+						return $optionImageSrc;
+
+					return $this->model_tool_image->resize($optionImageSrc,
+						$this->config->get('config_image_popup_width'),
+						$this->config->get('config_image_popup_height'));
+				}
+
+				function getOptionImageSrc($option_value_image, $option_value_image_product_option_value)
+				{
+					$optionImageSrc = "";		
+
+					if ($option_value_image_product_option_value && strpos($option_value_image_product_option_value, 'no_image') === false)
+					{
+						$optionImageSrc = $option_value_image_product_option_value;
+					}
+					else if ($option_value_image && strpos($option_value_image, 'no_image') === false)
+					{
+						$optionImageSrc = $option_value_image;
+					}
+					else
+					{
+						$optionImageSrc = 'NA';
+					}
+
+					return $optionImageSrc;
+				}
+				//EOF Product Option Image
+			]]></add>
+		</operation> 
+	</file>
+	<file name="catalog/view/theme/*/template/product/product.tpl">    
+		<operation>
+			<search position="replace"><![CDATA[value="<?php echo $option_value['product_option_value_id']; ?>"]]></search>
+			<add><![CDATA[src="<?php echo $option_value['image_product_option_value']; ?>" src-colorbox="<?php echo $option_value['image_product_option_value_colorbox']; ?>" value="<?php echo $option_value['product_option_value_id']; ?>"]]></add>
+		</operation>
+		<operation><!--Radio and Image option-->
+			<search position="replace" index="1,2"><![CDATA[<input type="radio" name="option]]></search>
+			<add><![CDATA[<input class="thumb" src="<?php echo $option_value['image_product_option_value']; ?>" src-colorbox="<?php echo $option_value['image_product_option_value_colorbox']; ?>" type="radio" name="option]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<?php echo $footer; ?>]]></search>
+			<add><![CDATA[
+				<script type="text/javascript"><!--	
+					$(document).on("click", ".thumb", function() {
+						//for non-select options
+						
+						var newImg = $(this).attr('src');
+						var newImgColorBox = $(this).attr('src-colorbox');
+						
+						if(newImg != 'NA')
+						{
+							poiChangeImage(newImg, newImgColorBox);
+						}
+					return true;
+					});                                  
+					$(document).ready(function()
+					{
+						$("*[src-colorbox]").each(function(){
+							$this = $(this);
+							
+							$src = $this.attr('src');
+							if($src != 'NA')
+							{
+								$('<img/>')[0].src = $src; //preload image
+							}
+							
+							$srcColorbox = $this.attr('src-colorbox');
+							
+							if($srcColorbox != 'NA')
+							{
+								$('<img/>')[0].src = $srcColorbox; //preload image
+							}
+						});
+					});
+					<?php foreach ($options as $option) { ?>
+					<?php if ($option['type'] == 'select' || $option['type'] == 'color') { ?>
+						$(document).ready(function(){
+							$('select[name="option[<?php echo $option['product_option_id']; ?>]"]').change(function() {
+								poiChangeSelect($(this));
+							});
+						});
+					<?php } ?>
+					<?php } ?>
+					function poiChangeSelect(selectObj)
+					{
+						$selectedOption = selectObj.find("option:selected");
+						var newImg = $selectedOption.attr('src');
+						var newImgColorBox = $selectedOption.attr('src-colorbox');
+						if(newImg != 'NA')
+						{				
+							poiChangeImage(newImg, newImgColorBox);
+						}
+						return true;
+					}
+					
+					$poiImageToChange = [];
+					function setImageToChange()
+					{
+						$poiImageToChange = $('#image, #zoom1 img, #ma-zoom1 img, #main-image, div.image a.colorbox-product img, div.image #wrap a img, .zoomPad > img, .product-info .image > img, .product-image img, #zoom_01, .thumbnail > img:first');
+					}
+					setImageToChange();
+					
+					function poiChangeImage(newImageSrc, newImageColorBoxSrc)
+					{
+						setImageToChange();
+						$poiImageToChange.attr('src', newImageSrc);
+						
+						if(newImageColorBoxSrc != null)
+						{
+							//OC2 ColorBox
+							if($('a.thumbnail:first').length > 0)
+							{
+								$('a.thumbnail:first').attr('href', newImageColorBoxSrc);
+							}
+						
+							//ElevateZoom
+							if($('.zoomWindow').length > 0)
+							{
+								$('.zoomWindow').css('background-image', 'url("' + newImageColorBoxSrc + '")');
+							}
+							
+							//CloudZoom
+							if($('.mousetrap').length > 0)
+							{
+								$('.mousetrap').on('mouseenter', this, function (event) {
+									$('#cloud-zoom-big').css('background-image', 'url("' + newImageColorBoxSrc + '")');
+								});
+							}
+							
+							//ColorBox
+							if($('.image .colorbox').length > 0)
+							{
+								$('.image .colorbox').attr('href', newImageColorBoxSrc);
+							}
+							
+							//jQueryZoom
+							if($('.zoomWrapperImage > img').length > 0)
+							{
+								$('.zoomWrapperImage > img').attr('src', newImageColorBoxSrc);
+							}
+							
+							//Lightbox
+							if($('a[rel="lightbox[thumb]"]').length > 0)
+							{
+								$('a[rel="lightbox[thumb]"]').attr('href', newImageColorBoxSrc);
+							}
+							
+							//MagicZoom
+							if($('.MagicZoomBigImageCont img').length > 0)
+							{
+								$('.MagicToolboxContainer img').attr('src', newImageSrc);
+								$('.MagicZoomBigImageCont img').attr('src', newImageColorBoxSrc);
+							}
+							
+							//zoomLens
+							if($('.zoomLens img').length > 0)
+							{
+								$('.zoomLens > img').attr('src', newImageColorBoxSrc);
+								$('#image').data('elevateZoom').swaptheimage(newImageColorBoxSrc, newImageColorBoxSrc); 
+							}
+							
+							//zm-viewer 
+							if($('.zm-viewer img').length > 1)
+							{
+								$($('.zm-viewer img')).attr('src', newImageColorBoxSrc);
+							}
+						
+							//MagicZoomPlus
+							if($('a.MagicZoomPlus').length > 0)
+							{
+								$('a.MagicZoomPlus').attr('href', newImageColorBoxSrc);
+								$('.MagicThumb-expanded img').attr('src', newImageColorBoxSrc);
+							}
+						}
+					}
+				//--></script> 
+			]]></add>
+		</operation>
+	</file>
+  <!-- End change to selected option image -->
+</modification>

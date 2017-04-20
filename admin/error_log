@@ -1,0 +1,31 @@
+[14-Jan-2016 14:29:38 Asia/Ho_Chi_Minh] PHP Fatal error:  Call to undefined method ControllerModulePOSplitCategory::render() in /home/laasvn/public_html/admin/controller/module/po_split_category.php on line 94
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Warning:  mysqli::mysqli() [<a href='mysqli.mysqli'>mysqli.mysqli</a>]: (42000/1203): User laasvn_db already has more than 'max_user_connections' active connections in /home/laasvn/public_html/system/library/db/mysqli.php on line 7
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Notice:  Error: Could not make a database link (1203) User laasvn_db already has more than 'max_user_connections' active connections in /home/laasvn/public_html/system/library/db/mysqli.php on line 10
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Warning:  mysqli::set_charset() [<a href='mysqli.set-charset'>mysqli.set-charset</a>]: Couldn't fetch mysqli in /home/laasvn/public_html/system/library/db/mysqli.php on line 13
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Warning:  mysqli::query() [<a href='mysqli.query'>mysqli.query</a>]: Couldn't fetch mysqli in /home/laasvn/public_html/system/library/db/mysqli.php on line 14
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Warning:  mysqli::query() [<a href='mysqli.query'>mysqli.query</a>]: Couldn't fetch mysqli in /home/laasvn/public_html/system/library/db/mysqli.php on line 18
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Warning:  DB\MySQLi::query() [<a href='db\mysqli.query'>db\mysqli.query</a>]: Couldn't fetch mysqli in /home/laasvn/public_html/system/library/db/mysqli.php on line 20
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Notice:  Trying to get property of non-object in /home/laasvn/public_html/admin/index.php on line 37
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Warning:  Invalid argument supplied for foreach() in /home/laasvn/public_html/admin/index.php on line 37
+[21-Jan-2016 10:36:29 Asia/Ho_Chi_Minh] PHP Warning:  fopen(/home/laasvn/public_html/system/logs/) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: Is a directory in /home/laasvn/public_html/system/library/log.php on line 6
+[07-May-2016 11:42:02 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 26668 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[07-May-2016 11:42:26 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 26668 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[07-May-2016 17:27:50 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 26668 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[07-May-2016 17:27:57 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 26668 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:31:13 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:31:23 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:31:39 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:31:44 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:32:14 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:32:40 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:32:43 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:34:46 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:35:01 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:35:38 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:36:04 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3840 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:42:37 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:43:10 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3840 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:43:24 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3840 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:43:35 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3840 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:49:12 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 15360 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
+[09-May-2016 09:49:24 Asia/Ho_Chi_Minh] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3840 bytes) in /home/laasvn/public_html/system/library/image.php on line 34
